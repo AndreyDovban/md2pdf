@@ -6,14 +6,15 @@ RUN useradd --uid 1000 --gid andrey --shell /bin/bash --create-home andrey
 
 WORKDIR /opt/app
 RUN apt update
-RUN apt -y install mc
 RUN apt -y install pandoc
-RUN DEBIAN_FRONTEND=noninteractivе apt -y install texlive-xetex
-RUN apt -y install texlive-lang-cyrillic
 RUN mkdir /root/.fonts
 COPY fonts/ /root/.fonts
+RUN  apt -y install wkhtmltopdf
+RUN  ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
 RUN  fc-cache -f -v
 
+# RUN DEBIAN_FRONTEND=noninteractivе apt -y install texlive-xetex
+# RUN apt -y install texlive-lang-cyrillic
 
 # COPY xetex-install.sh /tmp/
 # RUN /tmp/xetex-install.sh

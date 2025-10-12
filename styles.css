@@ -1,8 +1,20 @@
+* {
+	font-family: Inter;
+}
+
 h1,
 h2,
-h3,
-p,
-div,
-span {
-	color: red !important;
+h3 {
+	color: red;
+}
+
+body {
+	max-width: 1600px;
+}
+table,
+tr,
+th,
+td {
+	border-collapse: collapse;
+	border: 1px solid grey;
 }
