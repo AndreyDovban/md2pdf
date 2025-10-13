@@ -2,27 +2,26 @@ docker run \
     -it \
     --rm \
     -v $(pwd):/opt/app \
-    ubuntu-pandoc \
+    ubuntu-md2pdf \
     pandoc \
-        --verbose \
         test.md \
         --from markdown \
         -t pdf \
         -s \
         --toc \
+        --dpi=72 \
         -V language=ru-RU \
         -V linkcolor:blue \
-        -V geometry:a4paper \
-        --pdf-engine=xelatex \
+        --pdf-engine=wkhtmltopdf \
+        --pdf-engine-opt=--enable-local-file-access \
         -V "mainfont:Inter" \
-        -V "geometry=margin=0.8in" \
-        -V "fontsize=16px" \
         --css ./styles.css \
         --wrap=auto \
         --columns=78 \
-        -o tet.pdf \
+        -o test.pdf \
 
 
+        # --pdf-engine-opt=--footer-right="[page] / [topage]" \
         # --include-before-body cover.tex \
         # -c style.css \
         # --epub-embed-font style.css \

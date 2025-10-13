@@ -2,7 +2,7 @@ docker run \
     -it \
     --rm \
     -v $(pwd):/opt/app \
-    ubuntu-pandoc \
+    ubuntu-md2pdf \
     pandoc \
         test.md \
         -s \

@@ -6,13 +6,23 @@ RUN useradd --uid 1000 --gid andrey --shell /bin/bash --create-home andrey
 
 WORKDIR /opt/app
 RUN apt update
+RUN apt -y install wget
 RUN apt -y install pandoc
+RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+RUN apt -y install ./wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+RUN  ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
 RUN mkdir /root/.fonts
 COPY fonts/ /root/.fonts
-RUN  apt -y install wkhtmltopdf
-RUN  ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
-RUN  fc-cache -f -v
+RUN fc-cache -f -v
 
+
+# RUN fc-cache -f -v
+
+# RUN mv ./wkhtmltox/bin/wkhtmltoimage /usr/local/bin/
+# RUN mv ./wkhtmltox/bin/wkhtmltopdf /usr/local/bin/
+
+
+# RUN  apt -y install ./wkhtmltopdf_0.12.6-2build2_amd64.deb
 # RUN DEBIAN_FRONTEND=noninteractivе apt -y install texlive-xetex
 # RUN apt -y install texlive-lang-cyrillic
 
