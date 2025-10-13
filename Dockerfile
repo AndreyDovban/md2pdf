@@ -14,9 +14,11 @@ RUN  ln -s /usr/bin/wkhtmltopdf /usr/local/bin/html2pdf
 RUN mkdir /root/.fonts
 COPY fonts/ /root/.fonts
 RUN fc-cache -f -v
+RUN apt -y install pdftk
 
 
-# RUN fc-cache -f -v
+RUN apt -y install qpdf
+# RUN fc-cache -f -v  qpdf
 
 # RUN mv ./wkhtmltox/bin/wkhtmltoimage /usr/local/bin/
 # RUN mv ./wkhtmltox/bin/wkhtmltopdf /usr/local/bin/

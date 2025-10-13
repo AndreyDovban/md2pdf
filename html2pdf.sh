@@ -14,7 +14,6 @@ docker run \
         --margin-left 42px \
         --margin-top 24px \
         --margin-right 42px \
-        cover.html \
         test.html \
         $2.pdf
 
