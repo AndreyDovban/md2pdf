@@ -5,9 +5,10 @@ docker run \
     ubuntu-md2pdf \
     wkhtmltopdf \
         --dpi $1 \
+        --encoding UTF-8 \
         --enable-local-file-access \
         --footer-right "[page]/[topage]" \
-        --footer-html ./footer.html \
+        --footer-html ./modules/footer.html \
         --footer-font-size 8 \
         --footer-spacing  2 \
         --margin-bottom 48px \

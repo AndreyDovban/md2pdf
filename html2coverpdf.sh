@@ -5,6 +5,8 @@ docker run \
     ubuntu-md2pdf \
     wkhtmltopdf \
         --dpi $1 \
+        --encoding UTF-8 \
+        --enable-local-file-access \
         --margin-bottom 0 \
         --margin-left 0 \
         --margin-top 0 \

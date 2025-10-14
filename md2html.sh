@@ -7,4 +7,10 @@ docker run \
         test.md \
         -s \
         -c ./styles.css \
-        -o test.html \
+        -o test.html
+
+
+
+header=$(cat ./modules/header.html)
+
+sed -i '/<body>/r header.html' ./test.html

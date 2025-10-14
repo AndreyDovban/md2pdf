@@ -142,6 +142,60 @@ li::before {
 	position: absolute;
 }
 
+/* Настройка стилей обложки */
+.cover_wrap {
+	font-family: Montserrat;
+	position: relative;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	padding-top: 100%;
+	padding-bottom: 100%;
+	background: grey;
+}
+
+/* .cover_center {
+	position: fixed;
+	color: white;
+	font-weight: 700;
+	font-size: 42px;
+	font-family: Montserrat;
+	top: 35%;
+	left: 0;
+	right: 0;
+	text-align: center;
+} */
+
+.cover_logo {
+	margin-bottom: 64px;
+}
+
+.cover_title {
+	font-family: Montserrat;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	margin-bottom: 24px;
+}
+
+.cover_version {
+	font-family: Montserrat;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 16px;
+	margin-bottom: 14px;
+}
+
+.cover_update {
+	font-family: Montserrat;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+}
+
 /* Настройка верхнего колонтитула, если он нужен  */
 header {
 	width: 100%;
