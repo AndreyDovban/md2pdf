@@ -12,7 +12,7 @@
 
 body {
 	text-align: justify;
-	font-size: 8px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 12px;
@@ -74,7 +74,7 @@ td {
 th,
 td {
 	/* border: 1px solid #ddd; */
-	padding: 8px;
+	padding: 10px;
 }
 
 /* Настройка отображения ссылок  */
@@ -92,10 +92,10 @@ code {
 	border-radius: 3px !important;
 
 	font-family: 'Roboto Mono';
-	font-size: 8px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 12px;
+	line-height: 14px;
 }
 
 pre {
@@ -110,22 +110,22 @@ code {
 
 /* Настройка цитат  */
 blockquote {
-	border-radius: 8px;
+	border-radius: 10px;
 	background: #e2112e1a;
 	padding: 12px;
 }
 
 strong {
-	font-size: 8px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 12px;
+	line-height: 14px;
 }
 
 ul,
 ol {
 	text-align: justify;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 ul {
@@ -237,27 +237,19 @@ header .wrap {
 }
 
 header .version {
-	font-size: 8px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 12px;
+	line-height: 14px;
 	color: var(--grey-light);
 	box-sizing: border-box;
 }
 
 header .update {
-	font-size: 8px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 12px;
+	line-height: 14px;
 	color: var(--grey-light);
 	box-sizing: border-box;
-}
-
-/* Настройка нижнего колонтитула, если он нужен  */
-footer {
-	font-family: Montserrat;
-	font-size: 12px;
-	color: var(--grey-light);
-	line-height: 12px;
 }

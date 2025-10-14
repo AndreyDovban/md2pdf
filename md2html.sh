@@ -4,13 +4,12 @@ docker run \
     -v $(pwd):/opt/app \
     ubuntu-md2pdf \
     pandoc \
-        test.md \
+        $1.md \
         -s \
-        -c ./styles.css \
+        -c ./modules/styles.css \
         -o test.html
 
 
 
-header=$(cat ./modules/header.html)
 
-sed -i '/<body>/r header.html' ./test.html
+sed -i '/<body>/r ./modules/header.html' ./test.html

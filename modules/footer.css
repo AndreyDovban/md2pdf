@@ -1,0 +1,7 @@
+/* Настройка нижнего колонтитула, если он нужен  */
+footer {
+	font-family: 'Montserrat';
+	font-size: 10px;
+	color: #9ca3af;
+	line-height: 12px;
+}

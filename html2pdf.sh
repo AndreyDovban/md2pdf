@@ -5,12 +5,15 @@ docker run \
     ubuntu-md2pdf \
     wkhtmltopdf \
         --dpi $1 \
+        --zoom 1.25 \
+        --enable-toc-back-links \
+        --disable-smart-shrinking \
         --encoding UTF-8 \
         --enable-local-file-access \
-        --footer-right "[page]/[topage]" \
         --footer-html ./modules/footer.html \
-        --footer-font-size 8 \
-        --footer-spacing  2 \
+        --footer-right "[page]/[topage]" \
+        --footer-font-size 10 \
+        --footer-spacing  5 \
         --margin-bottom 48px \
         --margin-left 42px \
         --margin-top 24px \
@@ -20,6 +23,7 @@ docker run \
 
 
 
+        # --footer-right "[page]/[topage]" \
         # --header-html ./header.html \
     # -e XDG_RUNTIME_DIR="/run/user/1000" \
 
