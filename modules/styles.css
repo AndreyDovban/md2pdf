@@ -143,6 +143,7 @@ li::before {
 	display: inline-block;
 	position: absolute;
 	top: 13px;
+	white-space: nowrap;
 }
 
 .logo_block .svg {
@@ -157,7 +158,7 @@ li::before {
 	position: absolute;
 	top: 7px;
 	right: 0;
-	min-width: 300px;
+	/* min-width: 300px; */
 	text-align: right;
 }
 
@@ -166,10 +167,12 @@ li::before {
 	font-weight: 700;
 	line-height: 14px;
 	color: var(--grey-light);
+	white-space: nowrap;
 }
 
 .logo_block .update {
 	font-size: 10px;
 	line-height: 14px;
 	color: var(--grey-light);
+	white-space: nowrap;
 }

@@ -22,6 +22,7 @@ footer {
 footer .company {
 	color: #9ca3af;
 	width: 50%;
+	white-space: nowrap;
 }
 
 footer .info {
@@ -31,6 +32,7 @@ footer .info {
 	position: absolute;
 	right: 0;
 	display: inline-block;
+	white-space: nowrap;
 }
 
 .red {
