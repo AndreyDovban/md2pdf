@@ -1,7 +1,38 @@
 /* Настройка нижнего колонтитула, если он нужен  */
-footer {
-	font-family: 'Montserrat';
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Montserrat;
 	font-size: 10px;
-	color: #9ca3af;
 	line-height: 12px;
+}
+
+body {
+	margin-left: 42px;
+	margin-right: 42px;
+}
+
+footer {
+	height: 36px;
+	padding-top: 12px;
+	width: 100%;
+	position: relative;
+}
+
+footer .company {
+	color: #9ca3af;
+	width: 50%;
+}
+
+footer .info {
+	color: #9ca3af;
+	min-width: 200px;
+	text-align: right;
+	position: absolute;
+	right: 0;
+	display: inline-block;
+}
+
+.red {
+	background: red;
 }

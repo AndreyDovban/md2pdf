@@ -7,57 +7,47 @@
 * {
 	font-family: Montserrat;
 	color: var(--grey-dark);
+	font-style: normal;
+	font-weight: 400;
 	margin: 0;
 }
 
 body {
-	text-align: justify;
 	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
 	line-height: 12px;
-	display: flex;
-	flex-direction: column;
-	margin-inline: 42px;
-	margin-block: 24px;
+	margin-left: 42px;
+	margin-right: 42px;
 }
 
 body > * {
-	margin-bottom: 12px;
+	margin-bottom: 14px;
 }
 
 h1 {
 	font-size: 18px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 24px;
 }
 
 h2 {
 	font-size: 16px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 20px;
 }
 
 h3 {
 	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
 	line-height: 20px;
 }
 
 h4 {
 	font-size: 10px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 16px;
 }
 
 h5 {
 	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
 	line-height: 16px;
 }
 
@@ -73,7 +63,6 @@ td {
 
 th,
 td {
-	/* border: 1px solid #ddd; */
 	padding: 10px;
 }
 
@@ -93,8 +82,6 @@ code {
 
 	font-family: 'Roboto Mono';
 	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
 	line-height: 14px;
 }
 
@@ -111,25 +98,22 @@ code {
 /* Настройка цитат  */
 blockquote {
 	border-radius: 10px;
-	background: #e2112e1a;
+	background: #ebf0ff;
 	padding: 12px;
 }
 
 strong {
 	font-size: 10px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 14px;
 }
 
 ul,
 ol {
-	text-align: justify;
 	padding-left: 15px;
 }
 
 ul {
-	/* list-style-type: '·'; */
 	list-style-type: none;
 }
 li {
@@ -142,114 +126,50 @@ li::before {
 	position: absolute;
 }
 
-/* Настройка стилей обложки */
-.cover_wrap {
-	font-family: Montserrat;
-	position: relative;
-	margin: auto;
-	width: 100%;
-	text-align: center;
-	padding-top: 100%;
-	padding-bottom: 100%;
-	background: grey;
-}
-
-/* .cover_center {
-	position: fixed;
-	color: white;
-	font-weight: 700;
-	font-size: 42px;
-	font-family: Montserrat;
-	top: 35%;
-	left: 0;
-	right: 0;
-	text-align: center;
-} */
-
-.cover_logo {
-	margin-bottom: 64px;
-}
-
-.cover_title {
-	font-family: Montserrat;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 24px;
-	margin-bottom: 24px;
-}
-
-.cover_version {
-	font-family: Montserrat;
-	font-size: 10px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 16px;
-	margin-bottom: 14px;
-}
-
-.cover_update {
-	font-family: Montserrat;
-	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 16px;
-}
-
 /* Настройка верхнего колонтитула, если он нужен  */
-header {
+.logo_block {
 	width: 100%;
-	font-family: 'Montserrat';
 	height: 42px;
-	min-height: 42px;
 	position: relative;
 	margin-bottom: 24px;
 	position: relative;
 }
 
-header .title {
+.logo_block .title {
 	font-size: 10px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 16px;
 	margin-left: 12px;
-
 	display: inline-block;
 	position: absolute;
-	top: 12px;
+	top: 13px;
 }
 
-header .svg {
+.logo_block .svg {
 	position: absolute;
 	left: 0;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-header .wrap {
+.logo_block .wrap {
 	display: inline-block;
-	vertical-align: middle;
 	position: absolute;
-	top: 9px;
+	top: 7px;
 	right: 0;
-
+	min-width: 300px;
 	text-align: right;
 }
 
-header .version {
+.logo_block .version {
 	font-size: 10px;
-	font-style: normal;
 	font-weight: 700;
 	line-height: 14px;
 	color: var(--grey-light);
-	box-sizing: border-box;
 }
 
-header .update {
+.logo_block .update {
 	font-size: 10px;
-	font-style: normal;
-	font-weight: 400;
 	line-height: 14px;
 	color: var(--grey-light);
-	box-sizing: border-box;
 }
