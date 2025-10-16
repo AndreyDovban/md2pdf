@@ -9,29 +9,31 @@
   <xsl:template match="outline:outline">
     <html>
       <head>
-        <title>Table of Contents</title>
+        <title>Содержание</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style>
           h1 {
             text-align: center;
-            font-size: 20px;
-            font-family: arial;
+            color: #1f2937;
+            font-size: 18px;
+	          font-weight: 700;
+	          line-height: 24px;
+            font-family: Montserrat;
           }
-          div {border-bottom: 1px dashed rgb(200,200,200);}
           span {float: right;}
-          li {list-style: none;}
+          li {list-style: none; cursor:pointer}
           ul {
-            font-size: 20px;
-            font-family: arial;
+            font-size: 14px;
+            font-family: Montserrat;
           }
-          ul ul {font-size: 80%; }
-          ul {padding-left: 0em;}
-          ul ul {padding-left: 1em;}
-          a {text-decoration:none; color: black;}
+          ul ul {font-size: 90%; }
+          ul {padding-left: 0em}
+          ul ul {padding-left: 15px;}
+          a {text-decoration:none; color: #1f2937;}
         </style>
       </head>
       <body>
-        <h1>Table of Contents</h1>
+        <h1>Содержание</h1>
         <ul><xsl:apply-templates select="outline:item/outline:item"/></ul>
       </body>
     </html>

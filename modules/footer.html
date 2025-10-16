@@ -32,10 +32,6 @@
 					var element = document.getElementsByClassName(css_selector_classes[css_class]);
 					for (var j = 0; j < element.length; ++j) {
 						element[j].textContent = vars[css_selector_classes[css_class]];
-						if (element[j].classList.contains('page') && element[j].textContent == '1') {
-							element[j].parentElement.parentElement.parentElement.classList.add('red');
-							element[j].parentElement.parentElement.innerHTML = null;
-						}
 					}
 				}
 			}
@@ -50,6 +46,10 @@
 </body>
 
 <!-- <footer>ООО «МД Информационные Cистемы» 2024</footer> -->
+
+<!-- 	if (element[j].classList.contains('page') && element[j].textContent == '1') {
+							element[j].parentElement.parentElement.innerHTML = null;
+						} -->
 
 <!-- <body style="border: 0; margin: 0" onload="subst()">
 	<table style="border-bottom: 1px solid black; width: 100%">

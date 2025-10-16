@@ -1,5 +1,5 @@
 # Дефолтные значения переменных
-title=Заголовок
+cover_title=Заголовок
 product=Продукт
 version="версия продукта"
 updated_at="последнее обновление"
@@ -13,15 +13,15 @@ echo $file_name
 
 # Парсинг метаданных целевого markdown файла
 while IFS= read -r line; do
-  if [[ "$line" =~ "product:"|"title:"|"version:"|"updated_at:"  ]]; then
+  if [[ "$line" =~ "product:"|"cover_title:"|"version:"|"updated_at:"  ]]; then
     case "$line" in
        *product*)
         product="${line##*product\: }"
         echo "Product: ${product}" # Отладочный вывод
         ;;
-      *title*)
-        title="${line##*title\: }"
-        echo "Title: ${title}" # Отладочный вывод
+      *cover_title*)
+        cover_title="${line##*cover_title\: }"
+        echo "Title: ${cover_title}" # Отладочный вывод
         ;;
       *version*)
         version="${line##*version\: }"
@@ -53,14 +53,14 @@ docker run \
 
 # Создание обложки документа, подставление нужных значений 
 cp ./modules/cover.html ./modules/cover_temp.html
-sed -i "s/TITLE/${title}/" ./modules/cover_temp.html
+sed -i "s/TITLE/${cover_title}/" ./modules/cover_temp.html
 sed -i "s/PRODUCT/${product}/" ./modules/cover_temp.html
 sed -i "s/VERSION/${version}/" ./modules/cover_temp.html
 sed -i "s/UPDATED_AT/${updated_at}/" ./modules/cover_temp.html
 
 # Создание шапки документа, подставление нужных значений 
 cp ./modules/logotip.html ./modules/logotip_temp.html
-sed -i "s/TITLE/${title}/" ./modules/logotip_temp.html
+sed -i "s/TITLE/${cover_title}/" ./modules/logotip_temp.html
 sed -i "s/PRODUCT/${product}/" ./modules/logotip_temp.html
 sed -i "s/VERSION/${version}/" ./modules/logotip_temp.html
 sed -i "s/UPDATED_AT/${updated_at}/" ./modules/logotip_temp.html
@@ -78,19 +78,21 @@ docker run \
     wkhtmltopdf \
         --dpi 72 \
         --zoom 1.25 \
-        --enable-toc-back-links \
+        --page-offset -1 \
         --disable-smart-shrinking \
+        --enable-toc-back-links \
         --encoding UTF-8 \
         --enable-local-file-access \
         --footer-spacing  0 \
         --header-spacing  -1 \
         --footer-html ./modules/footer.html \
-        --header-html ./modules/header.html \
         --margin-bottom 36px \
-        --margin-left 0px \
+        --margin-left 42px \
         --margin-top 24px \
-        --margin-right 0px \
-        ./modules/cover_temp.html \
+        --margin-right 42px \
+        cover ./modules/cover_temp.html \
+        toc \
+        --xsl-style-sheet ./modules/toc.xsl \
         $file_name.html \
         $file_name.pdf
 
@@ -100,6 +102,8 @@ rm $file_name.html
 rm ./modules/cover_temp.html
 rm ./modules/logotip_temp.html
 
+        # --toc-header-text Содержание \ 
+# --header-html ./modules/header.html \
 
 
 

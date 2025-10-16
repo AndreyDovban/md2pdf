@@ -15,8 +15,6 @@
 body {
 	font-size: 10px;
 	line-height: 12px;
-	margin-left: 42px;
-	margin-right: 42px;
 }
 
 body > * {
@@ -52,18 +50,31 @@ h5 {
 }
 
 /* Настройка таблиц  */
+table {
+	width: 100%;
+}
 table,
 th,
 tr,
 td {
 	border-collapse: collapse;
-	width: 100%;
-	border: 1px solid grey;
 }
 
 th,
 td {
-	padding: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+th {
+	background-color: #9ca3af;
+	color: white;
+}
+
+td {
+	border-bottom: 1px solid #9ca3af;
 }
 
 /* Настройка отображения ссылок  */
@@ -73,32 +84,25 @@ a {
 }
 
 /* Стилизация блока с кодом  */
-pre,
-code {
-	color: grey !important;
-	background-color: #f7f6fa !important;
-	border: 1px solid #ececec !important;
-	border-radius: 3px !important;
-
-	font-family: 'Roboto Mono';
-	font-size: 10px;
-	line-height: 14px;
-}
-
 pre {
+	background-color: black;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+
 	padding: 5px 10px;
-	line-height: 1.45;
 }
 
 code {
-	color: rgb(131, 16, 16) !important;
-	padding: 2px 4px !important;
+	color: #a90000;
+	font-family: 'Roboto Mono';
+	font-weight: 600;
 }
 
 /* Настройка цитат  */
 blockquote {
 	border-radius: 10px;
-	background: #ebf0ff;
+	/* color: white; */
+	background: #ebd3d3;
 	padding: 12px;
 }
 
@@ -124,6 +128,10 @@ li::before {
 	content: '· ';
 	left: -10px;
 	position: absolute;
+}
+
+img {
+	width: 100%;
 }
 
 /* Настройка верхнего колонтитула, если он нужен  */
