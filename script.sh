@@ -1,8 +1,8 @@
 # Дефолтные значения переменных
 cover_title=Заголовок
-product=Продукт
-version="версия продукта"
-updated_at="последнее обновление"
+cover_product=Продукт
+cover_version="версия продукта"
+cover_updated_at="последнее обновление"
 
 # Плучение имени файла без расширений и пути
 file_path=$1
@@ -13,23 +13,23 @@ echo $file_name
 
 # Парсинг метаданных целевого markdown файла
 while IFS= read -r line; do
-  if [[ "$line" =~ "product:"|"cover_title:"|"version:"|"updated_at:"  ]]; then
+  if [[ "$line" =~ "cover_product:"|"cover_title:"|"cover_version:"|"cover_updated_at:"  ]]; then
     case "$line" in
-       *product*)
-        product="${line##*product\: }"
-        echo "Product: ${product}" # Отладочный вывод
+       *cover_product*)
+        cover_product="${line##*cover_product: }"
+        echo "Product: ${cover_product}" # Отладочный вывод
         ;;
       *cover_title*)
-        cover_title="${line##*cover_title\: }"
+        cover_title="${line##*cover_title: }"
         echo "Title: ${cover_title}" # Отладочный вывод
         ;;
-      *version*)
-        version="${line##*version\: }"
-        echo "Version: ${version}" # Отладочный вывод
+      *cover_version*)
+        cover_version="${line##*cover_version: }"
+        echo "Version: ${cover_version}" # Отладочный вывод
         ;;
-      *updated_at*)
-        updated_at="${line##*updated_at\: }"
-        echo "Updated at: ${updated_at}" # Отладочный вывод
+      *cover_updated_at*)
+        cover_updated_at="${line##*cover_updated_at: }"
+        echo "Updated at: ${cover_updated_at}" # Отладочный вывод
         ;;
     esac
   fi
@@ -54,16 +54,16 @@ docker run \
 # Создание обложки документа, подставление нужных значений 
 cp ./modules/cover.html ./modules/cover_temp.html
 sed -i "s/TITLE/${cover_title}/" ./modules/cover_temp.html
-sed -i "s/PRODUCT/${product}/" ./modules/cover_temp.html
-sed -i "s/VERSION/${version}/" ./modules/cover_temp.html
-sed -i "s/UPDATED_AT/${updated_at}/" ./modules/cover_temp.html
+sed -i "s/PRODUCT/${cover_product}/" ./modules/cover_temp.html
+sed -i "s/VERSION/${cover_version}/" ./modules/cover_temp.html
+sed -i "s/UPDATED_AT/${cover_updated_at}/" ./modules/cover_temp.html
 
 # Создание шапки документа, подставление нужных значений 
 cp ./modules/logotip.html ./modules/logotip_temp.html
 sed -i "s/TITLE/${cover_title}/" ./modules/logotip_temp.html
-sed -i "s/PRODUCT/${product}/" ./modules/logotip_temp.html
-sed -i "s/VERSION/${version}/" ./modules/logotip_temp.html
-sed -i "s/UPDATED_AT/${updated_at}/" ./modules/logotip_temp.html
+sed -i "s/PRODUCT/${cover_product}/" ./modules/logotip_temp.html
+sed -i "s/VERSION/${cover_version}/" ./modules/logotip_temp.html
+sed -i "s/UPDATED_AT/${cover_updated_at}/" ./modules/logotip_temp.html
 
 # Добавление блока с логотипом с основной html фалй
 sed -i '/<body>/r ./modules/logotip_temp.html' ./$file_name.html
@@ -98,7 +98,7 @@ docker run \
 
 
 # Удаление временных файлов
-rm $file_name.html
+# rm $file_name.html
 rm ./modules/cover_temp.html
 rm ./modules/logotip_temp.html
 

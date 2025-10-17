@@ -85,24 +85,28 @@ a {
 
 /* Стилизация блока с кодом  */
 pre {
-	background-color: black;
-	border: 1px solid #ececec;
+	background-color: #f7e8e8;
+
 	border-radius: 3px;
 
-	padding: 5px 10px;
+	padding: 15px;
+	font-weight: 700;
+	border: 1px solid #9ca3af;
 }
 
-code {
-	color: #a90000;
+code,
+code * {
+	color: #c31818;
 	font-family: 'Roboto Mono';
 	font-weight: 600;
 }
 
 /* Настройка цитат  */
 blockquote {
-	border-radius: 10px;
-	/* color: white; */
-	background: #ebd3d3;
+	border-left: 5px solid #936666;
+	/* border-top-right-radius: 10px; */
+	/* border-bottom-right-radius: 10px; */
+	background: #f7e8e8;
 	padding: 12px;
 }
 
@@ -166,7 +170,6 @@ img {
 	position: absolute;
 	top: 7px;
 	right: 0;
-	/* min-width: 300px; */
 	text-align: right;
 }
 
