@@ -3,3 +3,4 @@ media/*
 *.md
 test.html
 *.pdf
+node_modules
