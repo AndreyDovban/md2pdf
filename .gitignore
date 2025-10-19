@@ -4,3 +4,4 @@ media/*
 test.html
 *.pdf
 node_modules
+*.png

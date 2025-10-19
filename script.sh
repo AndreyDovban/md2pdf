@@ -35,6 +35,10 @@ while IFS= read -r line; do
   fi
 done < $1
 
+
+# Тринслиткрация относительных путей к файлам
+go run . --path $1
+
  
 
 # Создание сосновного html файла из целевого markdown файла
@@ -45,7 +49,7 @@ docker run \
     -v $(pwd):/opt/app \
     ubuntu-md2pdf \
     pandoc \
-        $file_name.md \
+        temp.md \
         -s \
         -c ./modules/styles.css \
         -o $file_name.html
@@ -99,14 +103,10 @@ docker run \
 
 # Удаление временных файлов
 # rm $file_name.html
+# rm ./temp.dm
 rm ./modules/cover_temp.html
 rm ./modules/logotip_temp.html
 
-        # --toc-header-text Содержание \ 
-# --header-html ./modules/header.html \
-
-
-# node ./ttt.js
 
 
 
