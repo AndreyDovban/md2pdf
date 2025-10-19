@@ -102,8 +102,8 @@ docker run \
 
 
 # Удаление временных файлов
-# rm $file_name.html
-# rm ./temp.dm
+rm $file_name.html
+# rm ./temp.md
 rm ./modules/cover_temp.html
 rm ./modules/logotip_temp.html
 

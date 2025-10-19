@@ -171,9 +171,14 @@ func main() {
 	flag.Parse()
 	fmt.Println("Путь к файлу:", *path)
 
-	rootDir := "./testdir"
+	rootDir := "./media"
 
-	err := filepath.Walk(rootDir, createTreeDirs)
+	err := os.Mkdir("./folder", 0755)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	err = filepath.Walk(rootDir, createTreeDirs)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -210,7 +215,7 @@ func main() {
 			translitPath := Translit(matchedPathString[1])
 			// fmt.Println(translitPath)
 			res := strings.Replace(line, matchedPathString[1], "folder/"+translitPath, 1)
-			// fmt.Println(res)
+			// fmt.Println("!!!", res)
 			content += res + "\n"
 		} else {
 			content += line + "\n"
