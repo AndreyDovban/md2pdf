@@ -16,18 +16,17 @@ COPY fonts/ /root/.fonts
 RUN fc-cache -f -v
 
 
-RUN apt -y install curl
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# RUN apt -y install curl
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # set env
-ENV NVM_DIR=/root/.nvm
+# ENV NVM_DIR=/root/.nvm
 
 # install node
-RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
-RUN apt -y install mc
-RUN ln -s /root/.nvm/versions/node/v$NODE_VERSION/bin/node /usr/bin/node
-RUN ln -s /root/.nvm/versions/node/v$NODE_VERSION/bin/npm /usr/bin/npm
+# RUN bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION"
+# RUN apt -y install mc
+# RUN ln -s /root/.nvm/versions/node/v$NODE_VERSION/bin/node /usr/bin/node
+# RUN ln -s /root/.nvm/versions/node/v$NODE_VERSION/bin/npm /usr/bin/npm
 
-RUN apt -y install node-puppeteer
+# RUN apt -y install node-puppeteer
 

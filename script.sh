@@ -106,7 +106,7 @@ rm ./modules/logotip_temp.html
 # --header-html ./modules/header.html \
 
 
-node ./ttt.js
+# node ./ttt.js
 
 
 
