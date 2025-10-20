@@ -1,4 +1,4 @@
-# Дефолтные значения переменных
+# Дефолтные значения переменных для создания обложки и шапки документа
 cover_title=Заголовок
 cover_product=Продукт
 cover_version="версия продукта"
@@ -36,12 +36,14 @@ while IFS= read -r line; do
 done < $1
 
 
-# Тринслиткрация относительных путей к файлам
+# Создание временного markdown файла и временной директории со статическими ресурсами создаваемого документа
+# Названия фалов ресурсов и относительные ссылки на них будут транслитерированы
+# Библиотека wkhtmltopdf не поддерживает работу с относительными путями имеющими кирилицу
 go run . --path $1
 
  
 
-# Создание сосновного html файла из целевого markdown файла
+# Создание временного html файла из целевого markdown файла
 docker run \
     -it \
     --rm \
@@ -69,7 +71,7 @@ sed -i "s/PRODUCT/${cover_product}/" ./modules/logotip_temp.html
 sed -i "s/VERSION/${cover_version}/" ./modules/logotip_temp.html
 sed -i "s/UPDATED_AT/${cover_updated_at}/" ./modules/logotip_temp.html
 
-# Добавление блока с логотипом с основной html фалй
+# Добавление шапки документа основной html фалй
 sed -i '/<body>/r ./modules/logotip_temp.html' ./$file_name.html
 
 # Создание итогового pdf файла из html файла боложки и основного html файла
@@ -102,8 +104,9 @@ docker run \
 
 
 # Удаление временных файлов
-rm $file_name.html
-# rm ./temp.md
+# rm $file_name.html
+# rm -r ./folder
+rm ./temp.md
 rm ./modules/cover_temp.html
 rm ./modules/logotip_temp.html
 

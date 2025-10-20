@@ -99,6 +99,7 @@ func Translit(word string) string {
 
 }
 
+// Функция копирования файла
 func copyFile(src, dst string) error {
 	// Open the source file
 	sourceFile, err := os.Open(src)
@@ -129,12 +130,11 @@ func copyFile(src, dst string) error {
 	return nil
 }
 
+// Функция копирования структуры директорий каталога
 func createTreeDirs(path string, info fs.FileInfo, err error) error {
 	if err != nil {
 		return err
 	}
-
-	fmt.Println(info.Name(), info.Size())
 
 	if info.IsDir() {
 		err := os.Mkdir("./folder/"+Translit(path), 0755)
@@ -142,15 +142,15 @@ func createTreeDirs(path string, info fs.FileInfo, err error) error {
 			fmt.Println(err)
 		}
 	}
+
 	return nil
 }
 
+// Функция копирования файлов каталога
 func createTreeFiles(path string, info fs.FileInfo, err error) error {
 	if err != nil {
 		return err
 	}
-
-	fmt.Println(info.Name(), info.Size())
 
 	if !info.IsDir() {
 		newName := "./folder/" + Translit(path)
@@ -159,8 +159,8 @@ func createTreeFiles(path string, info fs.FileInfo, err error) error {
 			fmt.Printf("Ошибка переименования %s: %v\\n", path, err)
 		}
 	}
-	return nil
 
+	return nil
 }
 
 var (
@@ -171,6 +171,9 @@ func main() {
 	flag.Parse()
 	fmt.Println("Путь к файлу:", *path)
 
+	// Блок создания временной директории со статическими ресурсами создаемого документа
+	// Имена и файлов и дивекторий будут транслитерированы
+	// Дальнейшая работа по созданию документа будет совершаться над врменной директорией
 	rootDir := "./media"
 
 	err := os.Mkdir("./folder", 0755)
@@ -183,7 +186,6 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-
 	fmt.Println("Дерево директорий каталога успешно транслитерировано")
 
 	err = filepath.Walk(rootDir, createTreeFiles)
@@ -191,9 +193,10 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-
 	fmt.Println("Дерево файлов каталога успешно транслитерировано")
 
+	// Блок создания временного markdown файла с транслитерированными относительными ссылками
+	// Дальнейшая работа по созданию документа будет совершаться над временным фалом
 	filename := *path
 	file, err := os.Open(filename)
 	if err != nil {
@@ -209,7 +212,7 @@ func main() {
 	for scanner.Scan() {
 		line := scanner.Text()
 		if reMedia.MatchString(line) {
-			regPath := regexp.MustCompile(`(media.+)[\.].+`)
+			regPath := regexp.MustCompile(`(media.+)\.\S+?`)
 			matchedPathString := regPath.FindStringSubmatch(line)
 			// fmt.Println(matchedPathString)
 			translitPath := Translit(matchedPathString[1])
