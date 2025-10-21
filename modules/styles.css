@@ -49,6 +49,10 @@ h5 {
 	line-height: 16px;
 }
 
+img {
+	max-width: 100%;
+}
+
 /* Настройка таблиц  */
 table {
 	width: 100%;
@@ -146,10 +150,6 @@ ul ul {
 	bottom: 10px;
 	position: absolute;
 } */
-
-img {
-	max-width: 100%;
-}
 
 /* Настройка верхнего колонтитула, если он нужен  */
 .logo_block {
